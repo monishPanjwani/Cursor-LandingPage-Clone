@@ -1,372 +1,290 @@
 :root {
-    --text-color: #fff;
-    --card-background-color: #1b1913;
-    --default-font: "CursorGothic";
-}
-@font-face {
-    font-family: "CursorGothic";
-    src: url("./assets/CursorGothic-Regular.woff2");
-}
-body {
-    color: var(--text-color);
-    background-color: #100e09;
+    color-scheme: dark;
+    --background: #100e09;
+    --card: #1b1913;
+    --muted: #aaa89f;
+    --link: #ff7842;
+    --gap: 12px;
+    --gutter: clamp(16px, 3vw, 40px);
 }
 
-* {
-    margin: 0%;
-    padding: 0%;
+@font-face {
+    font-family: CursorGothic;
+    src: url("./assets/CursorGothic-Regular.woff2") format("woff2");
+    font-display: swap;
+}
+
+*, *::before, *::after {
     box-sizing: border-box;
 }
+
+body, p, h1, h2 {
+    margin: 0;
+}
+
+body {
+    color: #fff;
+    background: var(--background);
+    font: 1rem/1.45 CursorGothic, system-ui, sans-serif;
+}
+
+.navBar, main {
+    width: min(1300px, calc(100% - 2 * var(--gutter)));
+    margin-inline: auto;
+}
+
+img, video, svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
 .navBar {
     position: sticky;
     top: 0;
-    overflow: hidden;
-    background-color: #100e09;
-    max-width: 1300px;
-    width: 100%;
-    height: 51.992px;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    gap: 1rem;
-    margin-left: 110px;
-    margin-right: 110px;
-    margin-bottom: 50px;
+    align-items: center;
+    gap: 8px 16px;
+    padding-block: 6px;
+    background: var(--background);
 }
-.navCenterItem {
+
+.navCenterItem, .navRightItem {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 8px;
 }
-.navCenterItem a {
-    font-size: 14px;
-    color: var(--text-color);
-    text-decoration: none;
+
+.navCenterItem {
+    gap: clamp(10px, 2vw, 25px);
+    font-size: 0.9rem;
 }
-.navRightItem button {
-    cursor: pointer;
-    font-size: 15px;
-    border-radius: 18px;
-    padding: 5.6px 10.5px 5.6px 10.5px;
+
+.signIn, .downloadBtn2 {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
 }
+
 .signIn {
-    border: 1px solid #45433e;
-    background-color: var(--card-background-color);
-    color: #fff;
+    border: 1px solid #59564e;
+    background: var(--card);
 }
-.downloadBtn {
-    background-color: #fff;
+
+.downloadBtn2 {
+    color: var(--background);
+    background: #fff;
 }
 
 .mainTitle {
-    font-family: "CursorGothic";
-    font-size: 30px;
-    margin-top: 8rem;
-    margin-bottom: 45px;
-    margin-left: 110px;
-    margin-right: 110px;
-    font-weight: bold;
-    font-size: 10px;
+    margin-block: clamp(3rem, 8vw, 8rem) 1.5rem;
 }
-.mainTitle1 {
-    font-size: x-large;
+
+.mainTitle h1, h2 {
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
     font-weight: 400;
+    line-height: 1.2;
 }
-.mainTitle2 {
-    font-size: x-large;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-.downloadBtn2 {
-    cursor: pointer;
-    font-size: 17px;
-    border-radius: 3.40282e38px;
-    padding: 0.78em 1.35em 0.8em;
+
+.mainTitle .downloadBtn2 {
+    margin-top: 1rem;
+    padding: 0.75em 1.35em;
 }
 
 .card1 video {
-    width: 1300px;
-    height: 720px;
-    margin-left: 106px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
 }
 
 .trustedCompany {
-    width: 100%;
-    margin-top: 50px;
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.875rem;
-    font-weight: 400;
-    flex-direction: column;
+    margin-block: 3rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
-.companyLogoImg {
-    width: auto;
-    height: 40px;
-}
+
 .companyLogo {
-    display: flex;
-    gap: 7px;
-    width: 1318px;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: var(--gap);
+    margin-top: 1rem;
 }
+
 .box {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    place-items: center;
+    min-height: 80px;
+    padding: 12px;
+    background: var(--card);
+}
+
+.box img {
+    width: auto;
+    height: 25px;
+    object-fit: contain;
+}
+
+.card2, .card3, .card4, .researchTeamBox {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     align-items: center;
-    gap: 12px;
-    background-color: var(--card-background-color);
-    height: 100px;
-    margin-right: 12px;
-    width: 144px;
+    gap: clamp(16px, 3vw, 40px);
+    margin-top: 1rem;
+    padding: clamp(16px, 2vw, 28px);
+    background: var(--card);
 }
-.card2 {
-    display: flex;
-    margin-top: 15px;
-    margin-left: 110px;
-    height: 680px;
-    width: 1300px;
-    background-color: var(--card-background-color);
-}
-.text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 382px;
-    height: 680px;
-}
-.text {
-    padding-left: 15px;
-    padding-right: 30px;
-}
-.textLine1 {
-    font-size: 1.375rem;
-    font-weight: 500;
-    width: 300px;
-}
-.textLine2 {
-    color: #9a9996;
-    font-size: 1.375rem;
-    width: 400px;
-}
-.cardTerminalImg {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-left: 106px;
-}
-.orageText {
-    color: #f54e00;
-    margin-top: 15px;
+
+#product {
+    scroll-margin-top: 7rem;
 }
 
 .card3 {
-    font-family: "CursorGothic";
-    display: flex;
-    margin-top: 15px;
-    margin-left: 110px;
-    height: 680px;
-    width: 1300px;
-    background-color: var(--card-background-color);
-}
-.card3 video {
-    margin: 15px;
-    height: 650px;
-}
-.card3 .textLine1 {
-    width: 340px;
-}
-.card3 .textLine2 {
-    width: 355px;
-}
-.card3 .text {
-    margin-left: 50px;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 }
 
-.card4 {
-    font-family: "CursorGothic";
-    display: flex;
-    margin-top: 15px;
-    margin-left: 110px;
-    height: 680px;
-    width: 1300px;
-    background-color: var(--card-background-color);
+.terminalImg img, .terminalVideo video {
+    width: 100%;
+    height: auto;
 }
-.card4 img {
-    margin-right: 0% !important;
-    margin-left: 54px;
-    margin-top: 15px;
-    height: 650px;
-    width: 800px;
+
+.text h2, .textLine2 {
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    line-height: 1.3;
 }
-.card4 .text {
-    margin-right: 50px;
+
+.textLine2, .darkText {
+    color: var(--muted);
 }
+
+.detailLink {
+    display: inline-block;
+    margin-top: 0.875rem;
+    color: var(--link);
+}
+
 .subTitle {
-    font-family: "CursorGothic";
-    font-weight: 300;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-block: clamp(3rem, 7vw, 7rem) 2rem;
+    text-align: center;
 }
-.companyCeoFeedbacks {
+
+.companyCeoFeedbacks, .frontierCards, .changelogCards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-    width: 1350px;
-    height: 490px;
-    margin-left: 110px;
-    font-family: "CursorGothic";
-    font-weight: 400;
-    font-style: normal;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--gap);
 }
+
+.companyCeoFeedbacks, .frontierCards {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.ceoBox, .frontierCard, .changelogCard {
+    padding: 18px;
+    background: var(--card);
+}
+
+.ceoBox, .frontierCard {
+    display: flex;
+    flex-direction: column;
+}
+
 .ceoBox {
-    background-color: var(--card-background-color);
-    font-family: "CursorGothic";
-    width: 390px;
-    height: 250px;
-    padding: 16px 17.5px 17.5px 17.5px;
+    gap: 2rem;
 }
+
 .ceoInfo {
     display: flex;
-    gap: 8px;
-    margin: 80px 9px 3px;
-}
-.darkText {
-    color: #9a9996;
-}
-.ceo-1 {
-    margin-top: 96px;
-}
-.ceo-2 {
-    margin-top: 96px;
-}
-.ceo-3 {
-    margin-top: 78px;
-}
-.ceo-4 {
-    margin-top: 54px;
-}
-.ceo-5 {
-    margin-top: 54px;
-}
-.ceo-6 {
-    margin-top: 92px;
-}
-.frontier {
-    margin-top: 150px;
-    margin-left: 106px;
-    margin-right: 0%;
-    margin-bottom: 20px;
-    width: 1500px;
-}
-.frontierTitle {
-    font-family: "CursorGothic";
-    font-size: 1.635rem;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
-.frontiercard-1 {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    background-color: var(--card-background-color);
-    width: 425px;
-    height: 480px;
-}
-.frontiercard-1 video {
-    height: 370px;
-    width: 380px;
-}
-.frontierCards {
-    display: flex;
-    gap: 12px;
-}
-.frontiercard-2 {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    background-color: var(--card-background-color);
-    width: 425px;
-    height: 480px;
-}
-.frontiercard-2 video {
-    height: 370px;
-    width: 380px;
-}
-.frontiercard-3 {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    background-color: var(--card-background-color);
-    width: 425px;
-    height: 480px;
-}
-.frontiercard-3 img {
-    margin-top: 11px;
-    height: 370px;
-    width: 350px;
-}
-.Changelog {
-    max-width: 1300px;
-    width: 100%;
-    margin-top: 65px;
-    margin-left: 110px;
-}
-.changelogTitle {
-    font-family: var(--default-font);
-    font-size: 25px;
-}
-.changelogCards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-.versionNo {
-    border: 0.926px solid#fff;
-    padding: 0px 9px 9px 9px;
-    border-radius: 10px;
-    height: 20px;
-}
-.dataVersionCtl {
-    font-family: var(--default-font);
-    display: flex;
-    gap: 8px;
-}
-.changelogCard {
-    padding: 15.9px 18.5px 20px 17.5px;
-    width: 290px;
-    height: 85px;
-    background-color: var(--card-background-color);
-    font-family: var(--default-font);
-}
-.changelogCardText {
-    padding-top: 10px;
-    width: 300px;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
 }
 
-.researchTeamBox {
+.ceoimg {
+    flex: none;
+}
+
+.frontier, .Changelog, .researchTeam, .recenthighlight {
+    margin-top: clamp(3rem, 7vw, 7rem);
+}
+
+.frontierCards, .changelogCards {
+    margin-top: 1rem;
+}
+
+.frontierCard .detailLink {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+
+.frontierCard video, .frontierCard img {
+    width: 100%;
+    margin-top: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.dataVersionCtl {
     display: flex;
-    margin-top: 50px;
-    margin-left: 100px;
-    width: 1300px;
-    height: 32rem;
-    font-family: var(--default-font);
-    background-color: var(--card-background-color);
+    align-items: center;
+    gap: 8px;
 }
-.textLine1 {
-    font-family: var(--default-font);
-    font-size: 1.165rem;
-    font-weight: 400;
-    margin-top: 12%;
-    margin-left: 26px;
+
+.versionNo {
+    padding-inline: 8px;
+    border: 1px solid currentColor;
+    border-radius: 1rem;
 }
-.researchTeamBox img {
-    height: 28.5rem;
-    width: 53rem;
+
+.changelogCardText {
+    padding-top: 10px;
+}
+
+.recenthighlight {
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 900px) {
+    .companyLogo {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .navBar {
+        flex-wrap: wrap;
+    }
+
+    .navCenterItem {
+        order: 1;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .card2, .card3, .card4, .researchTeamBox {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card3 .text {
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .companyLogo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
